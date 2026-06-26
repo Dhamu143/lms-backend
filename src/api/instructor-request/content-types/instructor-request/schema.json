@@ -1,0 +1,49 @@
+{
+  "kind": "collectionType",
+  "collectionName": "instructor_requests",
+  "info": {
+    "singularName": "instructor-request",
+    "pluralName": "instructor-requests",
+    "displayName": "InstructorRequest"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "expertise": {
+      "type": "string"
+    },
+    "experience": {
+      "type": "blocks"
+    },
+    "portfolioLink": {
+      "type": "string"
+    },
+    "requestStatus": {
+      "type": "enumeration",
+      "default": "Pending",
+      "enum": [
+        "Pending",
+        "Rejected",
+        "Approved"
+      ]
+    },
+    "resume": {
+      "type": "media",
+      "multiple": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "user": {
+      "type": "relation",
+      "relation": "manyToOne",
+      "target": "plugin::users-permissions.user",
+      "inversedBy": "instructor_requests"
+    }
+  }
+}
